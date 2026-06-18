@@ -1,0 +1,964 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Scroll Snap ─────────────────────────────────────────────── */
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.section {
+  height: 100vh;
+}
+
+/* ── Navigation ──────────────────────────────────────────────── */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  height: 64px;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.nav__logo img {
+  height: 310px;
+  width: auto;
+  margin-top: 180px;
+}
+
+.nav__logo {
+  transition: opacity 0.4s ease;
+}
+
+.nav__link {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  margin-left: 24px;
+  padding-top: 12px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  display: inline-block;
+}
+
+.nav__link:hover {
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+
+/* Nav Left */
+.nav__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Nav Toggle */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding-top: 12px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+
+.burger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger-lines span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: white;
+  transition: background 0.3s;
+}
+
+.nav-toggle__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+}
+
+/* ── Nav-Farbe auf hellen Seiten ─────────────────────────────── */
+body.nav-dark .nav__link,
+body.nav-dark .nav-toggle__label {
+  color: #1a1a1a;
+}
+
+body.nav-dark .burger-lines span {
+  background: #1a1a1a;
+}
+
+body.nav-dark .nav-toggle svg {
+  stroke: #1a1a1a;
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__content {
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+  color: white;
+}
+
+/* ── Split Screen ────────────────────────────────────────────── */
+.split {
+  display: flex;
+  background: #faf9f7;
+}
+
+.split--reversed {
+  background: #f0eeeb;
+}
+
+.split__left {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 120px;
+}
+
+.split--reversed .split__left {
+  padding: 0;
+  overflow: hidden;
+}
+
+.split__right {
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.split__right--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px 80px 60px;
+  overflow: visible;
+}
+
+.split__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.split__heading {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+
+.split__text {
+  font-size: 0.875rem;
+  line-height: 1.85;
+  color: #555;
+  max-width: 380px;
+  margin-bottom: 40px;
+}
+
+.split__cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 3px;
+  width: fit-content;
+  transition: opacity 0.2s, transform 0.25s ease;
+}
+
+.split__cta:hover {
+  opacity: 0.5;
+  transform: scale(1.04);
+}
+
+.split__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Produkte ────────────────────────────────────────────────── */
+.products {
+  padding: 80px 60px 60px;
+  background: #faf9f7;
+  overflow-y: auto;
+}
+
+.products__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  background: #f0eeeb;
+  display: block;
+}
+
+.product-card__name {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: #1a1a1a;
+}
+
+.product-card__type {
+  color: #888;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.product-card__price {
+  font-size: 0.875rem;
+  margin-top: 6px;
+  color: #1a1a1a;
+}
+
+.product-card button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: background 0.2s, color 0.2s, transform 0.25s ease;
+}
+
+.product-card button:hover {
+  background: #1a1a1a;
+  color: white;
+  transform: scale(1.03);
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 40px 60px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  height: 50vh;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.footer__heading {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.footer__link {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  margin-bottom: 7px;
+  transition: color 0.2s, transform 0.2s ease;
+  width: fit-content;
+}
+
+.footer__link:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+.footer__imp {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.7;
+  margin-bottom: 1px;
+}
+
+.footer__col--impressum .footer__heading {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer__legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__legal a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer__legal a:hover {
+  color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* ── Dots Navigation ─────────────────────────────────────────── */
+.dots {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 200;
+  transition: opacity 0.3s;
+}
+
+.dots.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot:hover {
+  transform: scale(1.6);
+}
+
+.dot.active {
+  width: 4px;
+  height: 40px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* ── Toast Wrapper ───────────────────────────────────────────── */
+.toast-wrapper {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 300;
+  width: 420px;
+  transition: opacity 0.3s;
+}
+
+.toast-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Info-Toast ──────────────────────────────────────────────── */
+.toast-info {
+  background: white;
+  color: #1a1a1a;
+  padding: 15px 22px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.toast-info.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.toast-info__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #1a1a1a;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: none;
+}
+
+/* ── Produkt-Toast ───────────────────────────────────────────── */
+.toast {
+  background: white;
+  display: flex;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.toast__img {
+  width: 130px;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.toast__body {
+  flex: 1;
+  padding: 20px 22px;
+  min-width: 0;
+}
+
+.toast__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.toast__name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.toast__price {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 6px;
+}
+
+.toast__size {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.toast__cart {
+  background: none;
+  border: none;
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  width: 62px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.25s ease;
+}
+
+.toast__cart:hover {
+  background: #f5f5f5;
+  transform: scale(1.15);
+}
+
+.toast__cart svg {
+  width: 22px;
+  height: 22px;
+  stroke: #1a1a1a;
+  fill: none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+/* ── Burger Menü Overlay ─────────────────────────────────────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  pointer-events: none;
+}
+
+.menu-overlay.open {
+  pointer-events: all;
+}
+
+.menu-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.menu-overlay.open .menu-overlay__backdrop {
+  opacity: 1;
+}
+
+.menu-overlay__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28%;
+  height: 100%;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  /* FIX: kein festes padding-bottom, stattdessen overflow-y: auto damit alles scrollbar ist */
+  padding: 40px 44px 0;
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  overflow-y: auto; /* FIX: Menü scrollbar bei kleinen Bildschirmhöhen */
+  overflow-x: hidden;
+}
+
+/* Scrollbar im Menü dezent stylen */
+.menu-overlay__panel::-webkit-scrollbar {
+  width: 3px;
+}
+.menu-overlay__panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.menu-overlay__panel::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+}
+
+.menu-overlay.open .menu-overlay__panel {
+  transform: translateX(0);
+}
+
+.menu-overlay__close {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 52px;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0; /* FIX: nicht zusammendrücken */
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-overlay__close:hover {
+  transform: scale(1.15) rotate(5deg);
+  opacity: 0.7;
+}
+
+.menu-overlay__close span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.menu-overlay__close span:first-child {
+  transform: rotate(45deg);
+}
+
+.menu-overlay__close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.menu-overlay__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  flex: 1;
+}
+
+.menu-overlay__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-overlay__label {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.menu-overlay__link {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 300;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.2s ease, transform 0.25s ease, letter-spacing 0.25s ease;
+  width: fit-content;
+}
+
+.menu-overlay__link:hover {
+  color: white;
+  transform: translateX(6px);
+  letter-spacing: 0.12em;
+}
+
+.menu-overlay__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  /* FIX: margin-top statt flex pushdown, damit es beim Scrollen unten bleibt */
+  margin-top: 32px;
+  padding: 20px 0 32px; /* FIX: padding-bottom statt auf Panel */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.menu-overlay__social {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-overlay__social-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.25s ease;
+  display: inline-block;
+}
+
+.menu-overlay__social-link:hover {
+  color: white;
+  transform: scale(1.06);
+}
+
+.menu-overlay__copy {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.08em;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE  (≤ 768 px)
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Grundlayout ─────────────────────────────────────────── */
+  html, body { overflow: hidden; }
+
+  .scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: none;
+    overscroll-behavior: none;
+  }
+
+  .section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* ── Navigation ──────────────────────────────────────────── */
+  .nav { padding: 0 20px; }
+
+  .nav__logo img {
+    height: 200px;
+    margin-top: 110px;
+  }
+
+  .nav-toggle__label { display: none; }
+
+  .nav-toggle svg { display: none; }
+
+  /* Warenkorb: nur Icon auf Mobile */
+  .nav__link--cart {
+    font-size: 0;
+    letter-spacing: 0;
+    padding-top: 0;
+    margin-left: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav__link--cart::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 01-8 0'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  body.nav-dark .nav__link--cart::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='1.5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 01-8 0'/%3E%3C/svg%3E");
+  }
+
+  /* ── Dots ────────────────────────────────────────────────── */
+  .dots { right: 12px; gap: 8px; }
+  .dot.active { height: 28px; }
+
+  /* ── Hero ────────────────────────────────────────────────── */
+  .hero { height: 100vh; }
+  .hero__content { left: 24px; bottom: 100px; }
+
+  /* ── Split Screen → vertikal stapeln ────────────────────── */
+  .split,
+  .split--reversed {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .split__left,
+  .split__right {
+    flex: none;
+    width: 100%;
+  }
+
+  .split .split__right {
+    order: -1;
+    height: 45vh;
+  }
+
+  .split .split__left {
+    padding: 36px 28px 48px;
+    order: 1;
+  }
+
+  /* FIX 1: "Der Gründer" – Textblock nicht mehr unter/im Bild */
+  .split--reversed .split__left {
+    order: -1;
+    height: 45vh;
+    padding: 0;
+    overflow: hidden;
+    flex-shrink: 0; /* FIX: verhindert dass das Bild zusammengedrückt wird */
+  }
+
+  .split--reversed .split__right--text {
+    order: 1;
+    padding: 36px 28px 48px;
+    overflow: visible;
+    /* FIX: sicherstellen, dass der Textblock vollständig unterhalb des Bildes liegt */
+    position: relative;
+    z-index: 1;
+    background: #f0eeeb; /* gleiche Farbe wie split--reversed */
+  }
+
+  .split__heading { font-size: 1.5rem; margin-bottom: 16px; }
+  .split__text    { font-size: 0.85rem; max-width: 100%; margin-bottom: 28px; }
+
+  /* ── Produkte → 2-Spalten-Grid ───────────────────────────── */
+  /* FIX: Produktseite scrollbar machen damit alle 4 Karten + Buttons sichtbar */
+  .section.products {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .products {
+    padding: 80px 20px 60px;
+    height: auto;
+    min-height: unset;
+    overflow-y: visible;
+  }
+
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Produktbilder kompakter damit mehr auf einmal sichtbar */
+  .product-card img {
+    aspect-ratio: 4/5; /* zwischen quadratisch und 3/4 */
+  }
+
+  .product-card__name {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .product-card__type {
+    font-size: 0.7rem;
+    margin-top: 2px;
+  }
+
+  .product-card__price {
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .product-card button {
+    font-size: 0.6rem;
+    padding: 8px 4px;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────── */
+  .footer {
+    height: auto;
+    min-height: 100vh;
+    padding: 48px 24px 28px;
+  }
+
+  .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .footer__col--impressum {
+    grid-column: 1 / -1;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* ── Burger-Menü Panel → volle Breite auf Mobile ─────────── */
+  .menu-overlay__panel {
+    width: 88%;
+    padding: 32px 28px 0;
+  }
+
+  .menu-overlay__nav { gap: 24px; }
+
+  .menu-overlay__link { font-size: 0.88rem; }
+
+  /* ── Toast → zentriert, fast volle Breite ────────────────── */
+  .toast-wrapper {
+    left: 50%;
+    right: auto;
+    bottom: 24px;
+    transform: translateX(-50%);
+    width: calc(100vw - 32px);
+    max-width: 420px;
+  }
+
+  .toast__img   { width: 80px; }
+
+  .toast__name  {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .toast__cart  { width: 52px; }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BYREDO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BURGER MENÜ OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-overlay__backdrop" onclick="toggleMenu()"></div>
+    <div class="menu-overlay__panel">
+      <button class="menu-overlay__close" onclick="toggleMenu()" aria-label="Schließen">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu-overlay__nav">
+        <div class="menu-overlay__col">
+          <p class="menu-overlay__label">Shop</p>
+          <a href="#" class="menu-overlay__link">Wasser Still</a>
+          <a href="#" class="menu-overlay__link">Wasser Sprudel</a>
+          <a href="#" class="menu-overlay__link">Wasserquellen</a>
+          <a href="#" class="menu-overlay__link">Wasserflaschen</a>
+          <a href="#" class="menu-overlay__link">Bestseller</a>
+        </div>
+        <div class="menu-overlay__col">
+          <p class="menu-overlay__label">Unternehmen</p>
+          <a href="#" class="menu-overlay__link">Über Uns</a>
+          <a href="#" class="menu-overlay__link">Der Gründer</a>
+          <a href="#" class="menu-overlay__link">Nachhaltigkeit</a>
+          <a href="#" class="menu-overlay__link">Presse</a>
+        </div>
+        <div class="menu-overlay__col">
+          <p class="menu-overlay__label">Service</p>
+          <a href="#" class="menu-overlay__link">Versand & Lieferung</a>
+          <a href="#" class="menu-overlay__link">Rückgabe</a>
+          <a href="#" class="menu-overlay__link">FAQ</a>
+          <a href="#" class="menu-overlay__link">Kontakt</a>
+        </div>
+        <div class="menu-overlay__col">
+          <p class="menu-overlay__label">Rechtliches</p>
+          <a href="#" class="menu-overlay__link">Impressum</a>
+          <a href="#" class="menu-overlay__link">Datenschutz</a>
+          <a href="#" class="menu-overlay__link">AGB</a>
+          <a href="#" class="menu-overlay__link">Cookies</a>
+        </div>
+      </nav>
+      <div class="menu-overlay__bottom">
+        <div class="menu-overlay__social">
+          <a href="#" class="menu-overlay__social-link">Instagram</a>
+          <a href="#" class="menu-overlay__social-link">Pinterest</a>
+        </div>
+        <p class="menu-overlay__copy">© 2026 BYPURE GmbH, Berlin</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav__left">
+        <button class="nav-toggle" onclick="toggleMenu()">
+          <div class="burger-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <span class="nav-toggle__label">Menü</span>
+        </button>
+      </div>
+      <div class="nav__logo">
+        <a href="#">
+          <img src="logo.png" alt="BYREDO" />
+        </a>
+      </div>
+      <div class="nav__right">
+        <a href="#" class="nav__link nav__link--cart">Warenkorb (0)</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- DOTS NAVIGATION -->
+  <div class="dots" id="dotsContainer">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- SCROLL CONTAINER -->
+  <div class="scroll-container" id="scrollContainer">
+
+    <!-- SEITE 1 -->
+    <section class="section hero" data-index="0">
+      <picture>
+        <source srcset="bild1mobile.png" media="(max-width: 768px)" />
+        <img src="bild.png" alt="Hero" class="hero__image" />
+      </picture>
+      <div class="hero__content"></div>
+    </section>
+
+    <!-- SEITE 2 -->
+    <section class="section hero" data-index="1">
+      <picture>
+        <source srcset="bild2mobile.png" media="(max-width: 768px)" />
+        <img src="bild2.png" alt="Hero 2" class="hero__image" />
+      </picture>
+      <div class="hero__content"></div>
+    </section>
+
+    <!-- SEITE 3 -->
+    <section class="section hero" data-index="2">
+      <picture>
+        <source srcset="bild3mobile.png" media="(max-width: 768px)" />
+        <img src="bild3.png" alt="Hero 3" class="hero__image" />
+      </picture>
+      <div class="hero__content"></div>
+    </section>
+
+    <!-- SEITE 4 -->
+    <section class="section hero" data-index="3">
+      <picture>
+        <source srcset="bild4mobile.png" media="(max-width: 768px)" />
+        <img src="bild4.png" alt="Hero 4" class="hero__image" />
+      </picture>
+      <div class="hero__content"></div>
+    </section>
+
+    <!-- SEITE 5: ÜBER BYPURE (Split Screen) -->
+    <section class="section split" data-index="4">
+      <div class="split__left">
+        <span class="split__eyebrow">Entdecken</span>
+        <h2 class="split__heading">Über Bypure</h2>
+        <p class="split__text">
+          Bypure wurde 2006 in Norwegen gegründet. Inspiriert von der unberührten Natur und den kristallklaren Wasserquellen des Landes, steht die Marke für Reinheit, Natürlichkeit und Authentizität. Der Name „Bypure" spiegelt die Philosophie wider, die außergewöhnliche Reinheit norwegischen Quellwassers einzufangen und erlebbar zu machen. Mit einem Fokus auf Klarheit und Qualität verbindet Bypure die Kraft der Natur mit einem modernen Lebensgefühl und schafft Produkte, die Frische, Reinheit und Wohlbefinden verkörpern.
+        </p>
+        <a href="#" class="split__cta">Mehr erfahren</a>
+      </div>
+      <div class="split__right">
+        <img src="bild5.png" alt="Über Bypure" class="split__image" />
+      </div>
+    </section>
+
+    <!-- SEITE 6: KOLLEKTION (Split Screen umgekehrt) -->
+    <section class="section split split--reversed" data-index="5">
+      <div class="split__left">
+        <img src="bild6.png" alt="Kollektion" class="split__image" />
+      </div>
+      <div class="split__right split__right--text">
+        <span class="split__eyebrow">Der Gründer</span>
+        <h2 class="split__heading">Hinter der Vision</h2>
+        <p class="split__text">
+          Hinter Bypure steht die persönliche Entdeckungsreise von Julian Ryerson. Aufgewachsen inmitten der rauen, ungeschminkten Weite Norwegens, entwickelte er früh ein tiefes Verständnis für die stillen Nuancen seiner Heimat. Bypure begann für ihn nicht als Businessplan, sondern als das Bedürfnis, ein bestimmtes Gefühl von Ursprünglichkeit und Klarheit zu konservieren und mit der Welt zu teilen. Bis heute fließt seine persönliche Handschrift in jeden Entwicklungsschritt – von der ersten Skizze bis zum finalen Produkt.
+        </p>
+        <a href="#" class="split__cta">Die Vision entdecken</a>
+      </div>
+    </section>
+
+    <!-- SEITE 7: PRODUKTE -->
+    <section class="section products" data-index="6">
+      <h2 class="products__title">Bestseller</h2>
+      <div class="products__grid">
+        <div class="product-card">
+          <img src="produkt1.png" alt="Orvosfossen" />
+          <p class="product-card__name">Orvosfossen</p>
+          <p class="product-card__type">Orvosfossen-Quelle</p>
+          <p class="product-card__price">€ 9,90</p>
+          <button>In den Warenkorb</button>
+        </div>
+        <div class="product-card">
+          <img src="produkt2.png" alt="Ose" />
+          <p class="product-card__name">Ose</p>
+          <p class="product-card__type">Ose-Quelle</p>
+          <p class="product-card__price">€ 9,90</p>
+          <button>In den Warenkorb</button>
+        </div>
+        <div class="product-card">
+          <img src="produkt3.png" alt="Hardangerjøkulen" />
+          <p class="product-card__name">Hardangerjøkulen</p>
+          <p class="product-card__type">Hardangerjøkulen-Quelle</p>
+          <p class="product-card__price">€ 10,90</p>
+          <button>In den Warenkorb</button>
+        </div>
+        <div class="product-card">
+          <img src="produkt4.png" alt="Fyresdal" />
+          <p class="product-card__name">Fyresdal</p>
+          <p class="product-card__type">Fyresdal-Quelle</p>
+          <p class="product-card__price">€ 8,90</p>
+          <button>In den Warenkorb</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEITE 8: FOOTER + IMPRESSUM -->
+    <footer class="section footer" data-index="7">
+      <div class="footer__top">
+        <div class="footer__col">
+          <h4 class="footer__heading">Produkte</h4>
+          <a href="#" class="footer__link">Wasser Still</a>
+          <a href="#" class="footer__link">Wasser Sprudel</a>
+          <a href="#" class="footer__link">Wasserquellen</a>
+          <a href="#" class="footer__link">Wasserflaschen</a>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Service</h4>
+          <a href="#" class="footer__link">Versand & Lieferung</a>
+          <a href="#" class="footer__link">Rückgabe</a>
+          <a href="#" class="footer__link">FAQ</a>
+          <a href="#" class="footer__link">Kontakt</a>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Unternehmen</h4>
+          <a href="#" class="footer__link">Über uns</a>
+          <a href="#" class="footer__link">Nachhaltigkeit</a>
+          <a href="#" class="footer__link">Instagram</a>
+          <a href="#" class="footer__link">Pinterest</a>
+        </div>
+        <div class="footer__col footer__col--impressum">
+          <h4 class="footer__heading">Impressum</h4>
+          <p class="footer__imp">BYPURE GmbH</p>
+          <p class="footer__imp">Kurfürstendamm 195, 10707 Berlin</p>
+          <p class="footer__imp">HRB 214508 B · USt-ID: DE 314 827 561</p>
+          <p class="footer__imp">Tel: +49 30 88 92 640</p>
+          <p class="footer__imp">info@bypure.de</p>
+          <p class="footer__imp" style="margin-top:8px;">Verantwortlich nach § 18 Abs. 2 MStV: Ben Gorham</p>
+          <p class="footer__imp">EU-Streitschlichtung: ec.europa.eu/consumers/odr</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BYPURE GmbH, Berlin — Alle Preise inkl. MwSt. zzgl. Versandkosten</p>
+        <div class="footer__legal">
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
